@@ -24,7 +24,7 @@ export default function CreateGoal(props: ICreateGoalProps) {
       <h1>Welcome, let's set your goal!</h1>
       <Form>
         <Form.Group className="mb-3" controlId="goalStart">
-          <Form.Label>How many pushups would you like to start with?</Form.Label>
+          <Form.Label>How many sit-ups would you like to start with?</Form.Label>
           <Form.Control type="number" defaultValue="10" ref={goalStartRef} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="goalIncrease">

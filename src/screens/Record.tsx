@@ -1,4 +1,4 @@
-import { getTodayCount, recordPushups } from '../data/logs';
+import { getTodayCount, recordSitups } from '../data/logs';
 import { Check } from 'react-bootstrap-icons';
 import { getTodayGoal } from '../data/goals';
 import { useNavigate } from "react-router-dom";
@@ -13,19 +13,19 @@ export default function Record() {
   const [ignore, setIgnore] = React.useState(false);
   const navigate = useNavigate();
   const save = React.useCallback(() => {
-    recordPushups(count);
+    recordSitups(count);
     navigate('/');
   }, [count]);
   const touchingTimeout = React.useRef<number>();
 
-  const completedPushups = getTodayCount() + count;
+  const completedSitups = getTodayCount() + count;
   const goal = getTodayGoal();
   let message = '';
   let messageVariant = 'success';
-  if (completedPushups < goal) {
-    message = `${goal - completedPushups} left to go!`;
+  if (completedSitups < goal) {
+    message = `${goal - completedSitups} left to go!`;
     messageVariant = 'primary';
-  } else if (completedPushups === goal) {
+  } else if (completedSitups === goal) {
     message = 'Goal achieved!';
   } else {
     message = 'You\'re killing it!';

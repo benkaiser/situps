@@ -65,7 +65,7 @@ export default function History() {
       dashArray: [10, 0]
     },
     title: {
-      text: 'Pushup History',
+      text: 'Sit-Up History',
       align: 'left'
     },
     colors: ['#287bb5', '#2fb380'],

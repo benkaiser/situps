@@ -3,25 +3,25 @@ import { getTodayGoal } from "./goals";
 
 export interface ILogData {
   date: number;
-  numberOfPushups: number;
+  numberOfSitups: number;
 }
 
 export function readLogData(): ILogData[] {
   try {
-    return JSON.parse(localStorage.getItem('logData')) || [];
+    return JSON.parse(localStorage.getItem('situp-logData')) || [];
   } catch {
     return [];
   }
 }
 
 export function setLogDataRaw(logData: ILogData[]) {
-  localStorage.setItem('logData', JSON.stringify(logData));
+  localStorage.setItem('situp-logData', JSON.stringify(logData));
 }
 
 export function addToLogData(newLogData: ILogData) {
   const logData = readLogData();
   logData.push(newLogData);
-  localStorage.setItem('logData', JSON.stringify(logData));
+  localStorage.setItem('situp-logData', JSON.stringify(logData));
 }
 
 export function deleteLog(log: ILogData) {
@@ -31,9 +31,9 @@ export function deleteLog(log: ILogData) {
 
 export function getAllCount() {
   const logs = readLogData();
-  const pushupsDone = logs
-    .reduce((previousValue: number, currentValue) => previousValue + currentValue.numberOfPushups, 0);
-  return pushupsDone;
+  const situpsDone = logs
+    .reduce((previousValue: number, currentValue) => previousValue + currentValue.numberOfSitups, 0);
+  return situpsDone;
 }
 
 export function getLogsForDayNumebr(day: number): ILogData[] {
@@ -43,7 +43,7 @@ export function getLogsForDayNumebr(day: number): ILogData[] {
 
 export function getLogCountForDayNumebr(day: number): number {
   return getLogsForDayNumebr(day)
-    .reduce((previousValue: number, currentValue) => previousValue + currentValue.numberOfPushups, 0);
+    .reduce((previousValue: number, currentValue) => previousValue + currentValue.numberOfSitups, 0);
 }
 
 export function getTodayCount() {
@@ -54,8 +54,8 @@ export function getTodayLogs() {
   return getLogsForDayNumebr(dayNumber(+new Date()));
 }
 
-export function recordPushups(numberOfPushups: number): void {
-  addToLogData({date: +new Date(), numberOfPushups});
+export function recordSitups(numberOfSitups: number): void {
+  addToLogData({date: +new Date(), numberOfSitups: numberOfSitups});
 
   const count = getTodayCount();
   const goal = getTodayGoal();
@@ -64,9 +64,9 @@ export function recordPushups(numberOfPushups: number): void {
       serviceWorkerRegistration.getNotifications().then(notifications => {
         notifications.forEach(notification => notification.close());
         if (count < goal) {
-          serviceWorkerRegistration.showNotification('Pushup Time', {
-            icon: 'https://benkaiser.github.io/pushups/static/icons/icon-512x512.png',
-            badge: 'https://benkaiser.github.io/pushups/static/icons/badge-72x72.png',
+          serviceWorkerRegistration.showNotification('Sit-Up Time', {
+            icon: 'https://benkaiser.github.io/situps/static/icons/icon-512x512.png',
+            badge: 'https://benkaiser.github.io/situps/static/icons/badge-72x72.png',
             body: `${goal - count} more to hit your daily goal`
           });
         }

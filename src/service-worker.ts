@@ -50,8 +50,8 @@ sw.addEventListener('fetch', (event: FetchEvent) => {
 
 sw.addEventListener('push', function(e) {
   var options = {
-    icon: 'https://benkaiser.github.io/pushups/static/icons/icon-512x512.png',
-    badge: 'https://benkaiser.github.io/pushups/static/icons/badge-72x72.png',
+    icon: 'https://benkaiser.github.io/situps/static/icons/icon-512x512.png',
+    badge: 'https://benkaiser.github.io/situps/static/icons/badge-72x72.png',
     body: "Let's go!"
   };
   e.waitUntil(

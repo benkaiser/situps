@@ -24,7 +24,7 @@ const App = function() {
       <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <Navbar.Brand href="#/">
-            More Pushups
+            More Sit-Ups
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse>

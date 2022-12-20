@@ -9,7 +9,7 @@ export default function About() {
         This is a passion project from <a href='https://benkaiser.dev/about/' target='_blank'>Benjamin Kaiser</a>.
       </p>
       <p>
-        <Button href='https://github.com/benkaiser/pushups' target='_blank'>Source code available here on Github.</Button>
+        <Button href='https://github.com/benkaiser/situps' target='_blank'>Source code available here on Github.</Button>
       </p>
     </React.Fragment>
   );

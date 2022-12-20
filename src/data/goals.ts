@@ -8,19 +8,19 @@ interface IGoalData {
 
 export function readGoal(): IGoalData | undefined {
   try {
-    return JSON.parse(localStorage.getItem('goal')) || undefined;
+    return JSON.parse(localStorage.getItem('situp-goal')) || undefined;
   } catch {
     return undefined;
   }
 }
 
 export function setGoalDataRaw(goalData: IGoalData) {
-  localStorage.setItem('goal', JSON.stringify(goalData));
+  localStorage.setItem('situp-goal', JSON.stringify(goalData));
 }
 
 export function setGoalData(goalData: Omit<IGoalData, 'startDay'>) {
   const startDay = dayNumber(+new Date());
-  localStorage.setItem('goal', JSON.stringify({ ...goalData, startDay: startDay }));
+  localStorage.setItem('situp-goal', JSON.stringify({ ...goalData, startDay: startDay }));
 }
 
 export function daysSinceStart() {

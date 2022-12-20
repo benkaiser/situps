@@ -13,19 +13,19 @@ function TodayInfo() {
   if (count === goal) {
     return (
       <Alert variant={'success'}>
-        You reached your goal of {goal} pushups today!
+        You reached your goal of {goal} sit-ups today!
       </Alert>
     );
   } else if (count > goal) {
     return (
       <Alert variant={'success'}>
-        You smashed your goal of {goal} by doing {count - goal} extra pushups today!
+        You smashed your goal of {goal} by doing {count - goal} extra sit-ups today!
       </Alert>
     );
   } else if (count < goal) {
     return (
       <Alert variant={'info'}>
-        {goal - count} more pushups to go today!
+        {goal - count} more sit-ups to go today!
       </Alert>
     );
   }
@@ -34,10 +34,10 @@ function TodayInfo() {
 function GoalRenderer() {
   return (
     <React.Fragment>
-      <h1>Record Some Push Ups</h1>
+      <h1>Record Some Sit Ups</h1>
       <TodayInfo />
       <p>
-        <Link className='d-flex' to="/record"><Button className='flex-grow-1' variant="primary" size="lg"><RecordCircle size={24} className='me-2' /> Record Pushups</Button></Link>
+        <Link className='d-flex' to="/record"><Button className='flex-grow-1' variant="primary" size="lg"><RecordCircle size={24} className='me-2' /> Record Sit-Ups</Button></Link>
       </p>
       <p>
         <Link className='d-flex text-decoration-none' to="/manual"><Button className='flex-grow-1' variant="secondary" size="lg"><Calculator size={24} className='me-2' /> Manual Entry</Button></Link>

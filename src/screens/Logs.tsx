@@ -6,7 +6,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import dayjs from 'dayjs';
 
 export default function Logs() {
-  const [logs, setLogs] = useState(getTodayLogs());
+  const [logs, setLogs] = useState<ILogData[]>(getTodayLogs());
 
   function deleteEntry(log: ILogData) {
     deleteLog(log);
@@ -20,7 +20,7 @@ export default function Logs() {
         { logs.map((log) =>
           <ListGroupItem>
             <span className='log-line'>
-              <span className='text-muted'>{dayjs(log.date).format('hh:mm A')}</span> {log.numberOfPushups} { log.numberOfPushups === 1 ? 'pushup' : 'pushups' }
+              <span className='text-muted'>{dayjs(log.date).format('hh:mm A')}</span> {log.numberOfSitups} { log.numberOfSitups === 1 ? 'sit-up' : 'sit-ups' }
             </span>
             <Button size='sm' variant='danger' className='float-end' onClick={deleteEntry.bind(this, log)}>X</Button>
           </ListGroupItem>
