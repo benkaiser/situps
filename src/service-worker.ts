@@ -55,7 +55,7 @@ sw.addEventListener('push', function(e) {
     body: "Let's go!"
   };
   e.waitUntil(
-    sw.registration.showNotification('Pushup Time', options)
+    sw.registration.showNotification('Sit-up Time', options)
   );
 });
 
